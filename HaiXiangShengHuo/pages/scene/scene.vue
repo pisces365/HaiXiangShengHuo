@@ -9,7 +9,8 @@
 					<view class="scenetitle">
 						起床模式
 					</view>
-					<image class="sceneSettingIcon" src="http://p1362.bvimg.com/10465/0afca5eb8844f722.png" mode="">
+					<image class="sceneSettingIcon" src="http://p1362.bvimg.com/10465/0afca5eb8844f722.png" mode=""
+						@click="jump">
 					</image>
 				</view>
 				<view class="currentSubContent">
@@ -45,20 +46,22 @@
 			</view>
 			<view class="currentSceneTitle otherSceneTopMargin">
 				其他场景
-				
+
 			</view>
 			<view class="sceneContent" :style="{backgroundImage:`url(${sceneBgList.breakfast})`}">
 				<view class="scenetitle">
 					早餐模式
 				</view>
-				<image class="sceneSettingIcon" src="http://p1362.bvimg.com/10465/0afca5eb8844f722.png" mode="">
+				<image class="sceneSettingIcon" src="http://p1362.bvimg.com/10465/0afca5eb8844f722.png" mode=""
+					@click="jump">
 				</image>
 			</view>
 			<view class="sceneContent" :style="{backgroundImage:`url(${sceneBgList.leavehome})`}">
 				<view class="scenetitle">
 					离家模式
 				</view>
-				<image class="sceneSettingIcon" src="http://p1362.bvimg.com/10465/0afca5eb8844f722.png" mode="">
+				<image class="sceneSettingIcon" src="http://p1362.bvimg.com/10465/0afca5eb8844f722.png" mode=""
+					@click="jump">
 				</image>
 			</view>
 		</view>
@@ -69,15 +72,19 @@
 	export default {
 		data() {
 			return {
-				sceneBgList:{
-					morning:"http://p1362.bvimg.com/10465/5fb2d94ac88274be.png",
-					breakfast:"http://p1362.bvimg.com/10465/d9d165162b512299.png",
-					leavehome:"http://p1362.bvimg.com/10465/a6e1f16649c40926.png"
+				sceneBgList: {
+					morning: "http://p1362.bvimg.com/10465/5fb2d94ac88274be.png",
+					breakfast: "http://p1362.bvimg.com/10465/d9d165162b512299.png",
+					leavehome: "http://p1362.bvimg.com/10465/a6e1f16649c40926.png"
 				}
 			}
 		},
 		methods: {
-
+			jump() {
+				uni.navigateTo({
+					url: 'sceneSetting'
+				})
+			}
 		}
 	}
 </script>
@@ -90,12 +97,15 @@
 	.currentScene {
 		background-color: white;
 	}
-	.otherSceneTopMargin{
+
+	.otherSceneTopMargin {
 		margin-top: 100rpx;
 	}
-	.view-shadow{
+
+	.view-shadow {
 		box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
 	}
+
 	.sceneContent {
 		margin-top: 10rpx;
 		height: 280rpx;
@@ -146,10 +156,12 @@
 		width: 60rpx;
 		height: 60rpx;
 	}
-	.font-bold{
+
+	.font-bold {
 		font-weight: bold;
 	}
-	.currentSubContent-content-function-condition{
+
+	.currentSubContent-content-function-condition {
 		font-size: 28rpx;
 	}
 </style>
