@@ -23,14 +23,35 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		}, {
+			"path": "pages/room/room_setting/room_setting",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "transparent",
+				"app-plus": {
+					"titleNView": {
+						"type": "float",
+						"titleText": "房间设置"
+					}
+				}
+			}
+
 		}
 	    ,{
-            "path" : "pages/scene/sceneSetting",
+            "path" : "pages/mqtt/MqttTest/MqttTest",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
+            
+        }
+        ,{
+            "path" : "pages/gohome/gohome",
+			"style": {
+				"navigationStyle": "custom"
+			}
             
         }
     ],
