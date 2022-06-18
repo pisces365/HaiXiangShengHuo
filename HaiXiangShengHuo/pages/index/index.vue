@@ -31,14 +31,14 @@
 				<view class="quick_scene_change_name">
 					快速场景切换
 				</view>
-				<view class="quick_scene_change_setting">
+				<view class="quick_scene_change_setting" @click="nav_to_gohome()">
 					
 				</view>
 			</view>
 			<view>
 				<scroll-view scroll-x="true" class="quick_scene_bar">
 				  <block v-for="(item, index) in scene" :key="index">
-				    <view class="bar">
+				    <view class="bar" @click="nav_to_gohome()">
 						<view class="bar_name">
 							{{item.name}}
 						</view>
@@ -56,7 +56,7 @@
 				<view class="common_devices_name">
 					常用设备
 				</view>
-				<view class="common_devices_setting">
+				<view class="common_devices_setting" >
 					
 				</view>
 			</view>
@@ -67,7 +67,7 @@
 						<view class="GStitle">{{ item.title }}</view>
 						<view class="position">{{item.floor}}{{item.room}}</view>
 						<view class="GSimg"><image class="Image" :src="item.img"></image></view>
-						<view class="condition">{{item.condition?'123':'444'}}</view>
+						<view class="condition"></view>
 						<view class="img"></view>
 					</view>
 				</view>
@@ -88,7 +88,7 @@
 			<view>
 				
 				<view class="Grid2">
-					<view class="Grid-Item" v-for="item in List2" :key="item.id">
+					<view class="Grid-Item" v-for="item in List2" :key="item.id" @click="play(item.src)">
 						<view class="GSimg"><image class="Image" :src="item.img"></image></view>
 						<view class="GStitle">{{ item.title }}</view>
 						<view class="action">
@@ -108,8 +108,8 @@
 		data() {
 			return {
 				location: '杭州',
-				home_name: '家的名称',
-				temperature: 29.5,
+				home_name: '晓峰之家',
+				temperature: 20,
 				floor: 1,
 				room: '客厅',
 				weather: '晴',
@@ -117,17 +117,17 @@
 				air_condition: '优',
 				scene: [
 					{
-						name: '早起',
-						sign: '开启新的一天',
+						name: '回家',
+						sign: '避风的港湾',
 						img: ''
 					},
 					{
-						name: '早起',
-						sign: '开启新的一天',
+						name: '早餐',
+						sign: '吃饱饱添动力',
 						img: ''
 					},
 					{
-						name: '早起',
+						name: '离家',
 						sign: '开启新的一天',
 						img: ''
 					},
@@ -139,16 +139,16 @@
 				],
 				List:[
 					{id:1,img:'https://s1.ax1x.com/2022/03/17/qPU2uV.jpg',title:'微波炉',floor:'1F',room:'餐厅',condition:true},
-					{id:2,img:'https://s1.ax1x.com/2022/03/17/qPU2uV.jpg',title:'微波炉',floor:'1F',room:'餐厅',condition:true},
-					{id:3,img:'https://s1.ax1x.com/2022/03/17/qPU2uV.jpg',title:'微波炉',floor:'1F',room:'餐厅',condition:true},
-					{id:4,img:'https://s1.ax1x.com/2022/03/17/qPU2uV.jpg',title:'微波炉',floor:'1F',room:'餐厅',condition:true},
+					{id:2,img:'https://s1.ax1x.com/2022/05/27/XeAxP0.png',title:'洗衣机',floor:'1F',room:'卫生间',condition:true},
+					{id:3,img:'https://s1.ax1x.com/2022/05/27/XeAzGV.png',title:'空调',floor:'1F',room:'客厅',condition:true},
+					{id:4,img:'https://s1.ax1x.com/2022/05/27/XeES2T.png',title:'电视机',floor:'1F',room:'客厅',condition:true},
 					
 				],
 				List2:[
-					{id:1,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'门锁密码',action:'立即设置'},
-					{id:2,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'门锁密码',action:'立即设置'},
-					{id:3,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'门锁密码',action:'立即设置'},
-					{id:4,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'门锁密码',action:'立即设置'},
+					{id:1,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'钥匙提醒',action:'立即设置',src:"/static/music/key.mp3"},
+					{id:2,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'垃圾提醒',action:'立即设置',src:"/static/music/trash.mp3"},
+					{id:3,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'门锁密码',action:'立即设置',src:""},
+					{id:4,img:'https://s1.ax1x.com/2022/03/17/qPBFzj.png',title:'燃气检测',action:'立即设置',src:""},
 					
 				]
 			}
@@ -157,7 +157,16 @@
 
 		},
 		methods: {
-
+			play(src) {
+				const innerAudioContext = uni.createInnerAudioContext();
+				innerAudioContext.src = src;
+				innerAudioContext.play()
+			},
+			nav_to_gohome() {
+				uni.navigateTo({
+					url: "../gohome/gohome"
+				})
+			}
 		}
 	}
 </script>

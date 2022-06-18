@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/room/room",
     "pages/scene/scene",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/room/room_setting/room_setting"
   ],
   "subPackages": [],
   "window": {
@@ -44,6 +45,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }
