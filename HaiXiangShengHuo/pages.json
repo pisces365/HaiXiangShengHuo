@@ -19,6 +19,12 @@
 			}
 		},
 		{
+			"path": "pages/scene/sceneSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/my/my",
 			"style": {
 				"navigationStyle": "custom"
